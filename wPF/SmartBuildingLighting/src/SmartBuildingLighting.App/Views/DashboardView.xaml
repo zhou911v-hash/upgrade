@@ -1,0 +1,517 @@
+<UserControl x:Class="SmartBuildingLighting.App.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SmartBuildingLighting.App.Controls"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <!-- ============ 页面标题区 ============ -->
+                <Grid Margin="0,0,0,22">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="CONTROL / DASHBOARD" Style="{StaticResource PageTitleEn}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="仪表盘" Style="{StaticResource PageTitle}" VerticalAlignment="Center"/>
+                            <Border Background="#200F1E36"
+                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="8,3" Margin="14,6,0,0"
+                                    VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Style="{StaticResource StatusDotOnline}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="REAL-TIME" FontSize="10" FontWeight="Bold"
+                                               Foreground="{StaticResource SuccessBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                    <!-- 右上角状态卡：UPTIME + LAST UPDATE + ACTIVE RATIO -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Border Background="#200F1E36"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="14,9" Margin="0,0,10,0">
+                            <StackPanel>
+                                <TextBlock Text="UPTIME" FontSize="9" FontWeight="Bold"
+                                           Foreground="{StaticResource TextMutedBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"/>
+                                <TextBlock Text="{Binding UptimeDisplay, FallbackValue='00:00:00'}"
+                                           FontSize="13" FontWeight="SemiBold"
+                                           Foreground="{StaticResource TextPrimaryBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"
+                                           Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="#200F1E36"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="14,9" Margin="0,0,10,0">
+                            <StackPanel>
+                                <TextBlock Text="ACTIVE RATIO" FontSize="9" FontWeight="Bold"
+                                           Foreground="{StaticResource TextMutedBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"/>
+                                <TextBlock Text="{Binding ActiveRatioDisplay, FallbackValue='—'}"
+                                           FontSize="13" FontWeight="SemiBold"
+                                           Foreground="{StaticResource SuccessBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"
+                                           Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="#200F1E36"
+                                BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="14,9">
+                            <StackPanel>
+                                <TextBlock Text="LAST UPDATE" FontSize="9" FontWeight="Bold"
+                                           Foreground="{StaticResource TextMutedBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                                    <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding LastUpdateDisplay, FallbackValue='—:—:—'}"
+                                               FontSize="13" FontWeight="SemiBold"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               Margin="6,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+                <!-- ============ 顶部 4 个 HUD 数据卡片 ============ -->
+                <UniformGrid Columns="4" Margin="0,0,0,20">
+                    <!-- 楼层数 -->
+                    <Grid Margin="0,0,12,0">
+                        <Border Background="{StaticResource CardBgGradientBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="20,16">
+                            <Grid>
+                                <!-- 顶部 accent 高光 -->
+                                <Border Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                        Background="{StaticResource AccentBrush}" Opacity="0.45"/>
+                                <!-- 斜角装饰 -->
+                                <Path Style="{StaticResource CornerClipTL}"/>
+                                <Path Style="{StaticResource CornerClipBR}"/>
+                                <StackPanel Margin="6,6,6,6">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                                        <TextBlock Text="◆" Foreground="{StaticResource AccentBrush}" FontSize="11" VerticalAlignment="Center"/>
+                                        <TextBlock Text="FLOOR COUNT" Style="{StaticResource CardTitle}" Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding FloorCount}" Style="{StaticResource CardValue}" VerticalAlignment="Bottom"/>
+                                        <TextBlock Text="FL" Style="{StaticResource UnitLabel}" Margin="6,0,0,8" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+                                    <Grid Margin="0,14,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="楼层数" Foreground="{StaticResource TextSecondaryBrush}"
+                                                   FontSize="11" FontFamily="{StaticResource DisplayFontFamily}"/>
+                                        <TextBlock Grid.Column="1" Text="#01" Style="{StaticResource TechLabel}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <!-- 照明回路 -->
+                    <Grid Margin="0,0,12,0">
+                        <Border Background="{StaticResource CardBgGradientBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="20,16">
+                            <Grid>
+                                <Border Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                        Background="{StaticResource InfoBrush}" Opacity="0.45"/>
+                                <Path Style="{StaticResource CornerClipTL}" Stroke="{StaticResource InfoBrush}"/>
+                                <Path Style="{StaticResource CornerClipBR}" Stroke="{StaticResource InfoBrush}"/>
+                                <StackPanel Margin="6,6,6,6">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                                        <TextBlock Text="◉" Foreground="{StaticResource InfoBrush}" FontSize="11" VerticalAlignment="Center"/>
+                                        <TextBlock Text="TOTAL CIRCUITS" Style="{StaticResource CardTitle}" Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding TotalCircuits}" Style="{StaticResource CardValue}" VerticalAlignment="Bottom"/>
+                                        <TextBlock Text="CH" Style="{StaticResource UnitLabel}" Margin="6,0,0,8" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+                                    <Grid Margin="0,14,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="照明回路数" Foreground="{StaticResource TextSecondaryBrush}"
+                                                   FontSize="11" FontFamily="{StaticResource DisplayFontFamily}"/>
+                                        <TextBlock Grid.Column="1" Text="#02" Style="{StaticResource TechLabel}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <!-- 当前开启 + sparkline -->
+                    <Grid Margin="0,0,12,0">
+                        <Border Background="{StaticResource CardBgGradientBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="20,16">
+                            <Grid>
+                                <Border Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                        Background="{StaticResource SuccessBrush}" Opacity="0.55"/>
+                                <Path Style="{StaticResource CornerClipTL}" Stroke="{StaticResource SuccessBrush}"/>
+                                <Path Style="{StaticResource CornerClipBR}" Stroke="{StaticResource SuccessBrush}"/>
+                                <StackPanel Margin="6,6,6,6">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                                        <Ellipse Style="{StaticResource StatusDotOnline}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="ACTIVE NOW" Style="{StaticResource CardTitle}" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding OnlineCircuits}" Style="{StaticResource CardValue}"
+                                                   Foreground="{StaticResource SuccessBrush}" VerticalAlignment="Bottom">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect Color="#00FF88" BlurRadius="10" ShadowDepth="0" Opacity="0.5"/>
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                        <TextBlock Text="CH" Style="{StaticResource UnitLabel}" Margin="6,0,0,8" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+                                    <!-- Mini sparkline · 24 采样点，视觉动效 -->
+                                    <Border Height="26" Margin="0,10,0,0" Background="#100F1E36">
+                                        <Polyline Points="{Binding OnlineSparklinePoints}"
+                                                  Stroke="{StaticResource SuccessBrush}" StrokeThickness="1.5"
+                                                  Opacity="0.85"/>
+                                    </Border>
+                                    <Grid Margin="0,10,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="当前开启" Foreground="{StaticResource TextSecondaryBrush}"
+                                                   FontSize="11" FontFamily="{StaticResource DisplayFontFamily}"/>
+                                        <TextBlock Grid.Column="1" Text="#03" Style="{StaticResource TechLabel}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <!-- 实时功率 + sparkline -->
+                    <Grid>
+                        <Border Background="{StaticResource CardBgGradientBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="20,16">
+                            <Grid>
+                                <Border Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                        Background="{StaticResource AccentBrush}" Opacity="0.55"/>
+                                <Path Style="{StaticResource CornerClipTL}"/>
+                                <Path Style="{StaticResource CornerClipBR}"/>
+                                <StackPanel Margin="6,6,6,6">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                                        <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="POWER DRAW" Style="{StaticResource CardTitle}" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding TotalPower, StringFormat=F1}" Style="{StaticResource CardValue}"
+                                                   Foreground="{StaticResource AccentBrush}" VerticalAlignment="Bottom">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect Color="#00E5FF" BlurRadius="10" ShadowDepth="0" Opacity="0.55"/>
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                        <TextBlock Text="W" Style="{StaticResource UnitLabel}" Margin="6,0,0,8" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+                                    <Border Height="26" Margin="0,10,0,0" Background="#100F1E36">
+                                        <Polyline Points="{Binding PowerSparklinePoints}"
+                                                  Stroke="{StaticResource AccentBrush}" StrokeThickness="1.5"
+                                                  Opacity="0.85"/>
+                                    </Border>
+                                    <Grid Margin="0,10,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="实时功率" Foreground="{StaticResource TextSecondaryBrush}"
+                                                   FontSize="11" FontFamily="{StaticResource DisplayFontFamily}"/>
+                                        <TextBlock Grid.Column="1" Text="#04" Style="{StaticResource TechLabel}"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </UniformGrid>
+                <!-- ============ 中部图表区 ============ -->
+                <Grid Margin="0,0,0,18">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.7*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- 近7日能耗趋势 -->
+                    <Border Grid.Column="0" Margin="0,0,16,0"
+                            Background="{StaticResource CardBgGradientBrush}"
+                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                            CornerRadius="4" Padding="20,18">
+                        <Grid>
+                            <Path Style="{StaticResource CornerClipTL}"/>
+                            <Path Style="{StaticResource CornerClipTR}"/>
+                            <Path Style="{StaticResource CornerClipBL}"/>
+                            <Path Style="{StaticResource CornerClipBR}"/>
+                            <StackPanel Margin="6">
+                                <Grid Margin="0,0,0,16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="ENERGY · 7-DAY TREND" Style="{StaticResource PageTitleEn}" Margin="0,0,0,2"/>
+                                        <TextBlock Text="近7日能耗趋势" Style="{StaticResource SectionTitle}" Margin="0"/>
+                                    </StackPanel>
+                                    <Border Grid.Column="1" Background="#201C3555" BorderBrush="{StaticResource PrimaryLightBrush}"
+                                            BorderThickness="1" CornerRadius="3" Padding="10,5" VerticalAlignment="Top">
+                                        <TextBlock Text="kWh" FontSize="10" FontWeight="Bold"
+                                                   Foreground="{StaticResource AccentBrush}"
+                                                   FontFamily="{StaticResource MonoFontFamily}"/>
+                                    </Border>
+                                </Grid>
+                                <lvc:CartesianChart Series="{Binding EnergyTrendSeries}"
+                                                    XAxes="{Binding EnergyTrendXAxes}"
+                                                    YAxes="{Binding EnergyTrendYAxes}"
+                                                    Height="240"
+                                                    Background="Transparent"/>
+                                <Border Height="1" Background="{StaticResource PrimaryLightBrush}" Opacity="0.4" Margin="0,14,0,14"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="TODAY" FontSize="10" FontWeight="Bold"
+                                               Foreground="{StaticResource TextMutedBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding TodayEnergy, StringFormat=F1}"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontSize="20" FontWeight="Bold"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center" Margin="14,0,0,0"/>
+                                    <TextBlock Text="kWh" Foreground="{StaticResource TextSecondaryBrush}"
+                                               FontSize="13"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Bottom" Margin="6,0,0,3"/>
+                                    <!-- 对比昨日的箭头 + 百分比 -->
+                                    <Border Background="#151C3555" BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                            CornerRadius="3" Padding="8,3" Margin="14,0,0,0" VerticalAlignment="Center"
+                                            Visibility="{Binding EnergyTrendDelta, Converter={StaticResource NullToVisibility}}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="VS · YESTERDAY" FontSize="9" FontWeight="Bold"
+                                                       Foreground="{StaticResource TextMutedBrush}"
+                                                       FontFamily="{StaticResource MonoFontFamily}"
+                                                       VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding EnergyTrendDelta}"
+                                                       FontSize="11" FontWeight="Bold"
+                                                       FontFamily="{StaticResource MonoFontFamily}"
+                                                       VerticalAlignment="Center" Margin="8,0,0,0">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Foreground" Value="{StaticResource WarningBrush}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding EnergyTrendIsDown}" Value="True">
+                                                                <Setter Property="Foreground" Value="{StaticResource SuccessBrush}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                                <!-- 7 日 sparkline -->
+                                <Border Height="28" Margin="0,14,0,0" Background="#100F1E36">
+                                    <Viewbox Stretch="Fill" StretchDirection="Both">
+                                        <Polyline Points="{Binding EnergySparklinePoints}"
+                                                  Stroke="{StaticResource AccentLightBrush}" StrokeThickness="1.2"
+                                                  Opacity="0.7"/>
+                                    </Viewbox>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <!-- SYSTEM INSIGHT + 最近操作 -->
+                    <Border Grid.Column="1"
+                            Background="{StaticResource CardBgGradientBrush}"
+                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                            CornerRadius="4" Padding="20,18">
+                        <Grid>
+                            <Path Style="{StaticResource CornerClipTL}"/>
+                            <Path Style="{StaticResource CornerClipBR}"/>
+                            <StackPanel Margin="6">
+                                <!-- ============ Insight 区 ============ -->
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="SYSTEM · INSIGHT" Style="{StaticResource PageTitleEn}" Margin="0,0,0,2"/>
+                                        <TextBlock Text="智能洞察" Style="{StaticResource SectionTitle}" Margin="0"/>
+                                    </StackPanel>
+                                    <Border Grid.Column="1" Background="#301C3555"
+                                            BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                            CornerRadius="3" Padding="7,3" VerticalAlignment="Top">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="LIVE" FontSize="9" FontWeight="Bold"
+                                                       Foreground="{StaticResource AccentBrush}"
+                                                       FontFamily="{StaticResource MonoFontFamily}"
+                                                       Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                                <ItemsControl ItemsSource="{Binding Insights}" Margin="0,0,0,4">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#200F1E36"
+                                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="0,0,0,1"
+                                                    Padding="10,9" Margin="0,0,0,6" CornerRadius="2">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Path Data="M0,0 L6,4 L0,8 Z" Fill="{StaticResource AccentBrush}"
+                                                          Width="6" Height="8" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                                    <TextBlock Text="{Binding}" Foreground="{StaticResource TextPrimaryBrush}"
+                                                               FontSize="12"
+                                                               FontFamily="{StaticResource DisplayFontFamily}"
+                                                               VerticalAlignment="Center"
+                                                               TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <!-- ============ 最近操作 区 ============ -->
+                                <Border Height="1" Background="{StaticResource PrimaryLightBrush}" Opacity="0.4" Margin="0,10,0,12"/>
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="ACTIVITY · LOG" FontSize="10" FontWeight="Bold"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="最近 5 条"
+                                               FontSize="10" Foreground="{StaticResource TextMutedBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                </Grid>
+                                <ItemsControl ItemsSource="{Binding RecentLogs}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Padding="2,7"
+                                                    BorderBrush="#141E3A5F"
+                                                    BorderThickness="0,0,0,1">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Border Width="3" Height="3" CornerRadius="2"
+                                                            Background="{StaticResource AccentBrush}"
+                                                            VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                                    <TextBlock Grid.Column="1" Text="{Binding Description}"
+                                                               Foreground="{StaticResource TextSecondaryBrush}"
+                                                               FontSize="11"
+                                                               FontFamily="{StaticResource DisplayFontFamily}"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                    <TextBlock Grid.Column="2"
+                                                               Text="{Binding OperationTime, StringFormat=HH:mm}"
+                                                               Foreground="{StaticResource TextMutedBrush}"
+                                                               FontSize="10"
+                                                               FontFamily="{StaticResource MonoFontFamily}"
+                                                               Margin="10,0,0,0"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <Border Padding="14,16" Background="Transparent">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RecentLogs.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="NO ACTIVITY" FontSize="10" FontWeight="Bold"
+                                                   Foreground="{StaticResource TextMutedBrush}"
+                                                   FontFamily="{StaticResource MonoFontFamily}"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="暂无操作记录"
+                                                   Foreground="{StaticResource TextMutedBrush}"
+                                                   FontSize="11"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <!-- ============ 各楼层能耗对比 ============ -->
+                <Border Background="{StaticResource CardBgGradientBrush}"
+                        BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                        CornerRadius="4" Padding="20,18">
+                    <Grid>
+                        <Path Style="{StaticResource CornerClipTL}"/>
+                        <Path Style="{StaticResource CornerClipTR}"/>
+                        <Path Style="{StaticResource CornerClipBL}"/>
+                        <Path Style="{StaticResource CornerClipBR}"/>
+                        <StackPanel Margin="6">
+                            <Grid Margin="0,0,0,14">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="FLOOR · ENERGY COMPARE · 30D" Style="{StaticResource PageTitleEn}" Margin="0,0,0,2"/>
+                                    <TextBlock Text="各楼层能耗对比（近30日）" Style="{StaticResource SectionTitle}" Margin="0"/>
+                                </StackPanel>
+                                <Border Grid.Column="1" Background="#201C3555" BorderBrush="{StaticResource PrimaryLightBrush}"
+                                        BorderThickness="1" CornerRadius="3" Padding="10,5" VerticalAlignment="Top">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Width="6" Height="6" Fill="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="30-DAY" FontSize="10" FontWeight="Bold"
+                                                   Foreground="{StaticResource AccentBrush}"
+                                                   FontFamily="{StaticResource MonoFontFamily}"
+                                                   Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                            <lvc:CartesianChart Series="{Binding FloorEnergySeries}"
+                                                XAxes="{Binding FloorEnergyXAxes}"
+                                                YAxes="{Binding FloorEnergyYAxes}"
+                                                Height="260"
+                                                Background="Transparent"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <!-- ============ Loading 遮罩（科技风） ============ -->
+        <Border Background="#CC040812"
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Width="64" Height="64">
+                    <Ellipse Style="{StaticResource RotatingArc}" Width="64" Height="64"/>
+                    <Ellipse Style="{StaticResource PulseRing}" Width="30" Height="30"/>
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource AccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Color="#00E5FF" BlurRadius="14" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Text="LOADING DATA"
+                           FontSize="11" FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontFamily="{StaticResource MonoFontFamily}"
+                           HorizontalAlignment="Center" Margin="0,24,0,0"/>
+                <TextBlock Text="正在加载仪表盘数据"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           FontFamily="{StaticResource DisplayFontFamily}"
+                           FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

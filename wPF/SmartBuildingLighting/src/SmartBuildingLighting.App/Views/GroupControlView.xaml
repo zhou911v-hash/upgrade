@@ -1,0 +1,250 @@
+<UserControl x:Class="SmartBuildingLighting.App.Views.GroupControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SmartBuildingLighting.App.Controls"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader Title="分组控制" Code="CONTROL / GROUP"
+                             Subtitle="批量控制回路分组 · 支持自定义分组并统一调节亮度和开关"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="360"/>
+            </Grid.ColumnDefinitions>
+            <!-- ======== 左侧·分组列表 ======== -->
+            <ScrollViewer Margin="0,0,16,0" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <ItemsControl ItemsSource="{Binding Groups}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="{StaticResource CardBgGradientBrush}"
+                                        BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                        CornerRadius="4" Padding="20,16" Margin="0,0,0,12">
+                                    <Grid>
+                                        <Path Style="{StaticResource CornerClipTL}"/>
+                                        <Path Style="{StaticResource CornerClipBR}"/>
+                                        <Grid Margin="6">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <!-- 左侧图标 -->
+                                            <Border Width="48" Height="48" CornerRadius="3"
+                                                    Background="#300F1E36"
+                                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                                    VerticalAlignment="Top">
+                                                <TextBlock Text="◉"
+                                                           Foreground="{StaticResource AccentBrush}"
+                                                           FontSize="22"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <TextBlock.Effect>
+                                                        <DropShadowEffect Color="#00E5FF" BlurRadius="10" ShadowDepth="0" Opacity="0.55"/>
+                                                    </TextBlock.Effect>
+                                                </TextBlock>
+                                            </Border>
+                                            <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="SemiBold"
+                                                               Foreground="{StaticResource TextPrimaryBrush}"/>
+                                                    <Border Background="#200F1E36"
+                                                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                                            CornerRadius="3" Padding="7,2" Margin="12,0,0,0"
+                                                            VerticalAlignment="Center">
+                                                        <TextBlock FontSize="10" FontWeight="Bold"
+                                                                   Foreground="{StaticResource AccentBrush}"
+                                                                   FontFamily="{StaticResource MonoFontFamily}">
+                                                            <Run Text="{Binding GroupCircuits.Count, Mode=OneWay}"/>
+                                                            <Run Text=" CH"/>
+                                                        </TextBlock>
+                                                    </Border>
+                                                </StackPanel>
+                                                <TextBlock Text="{Binding Description}" FontSize="12"
+                                                           Foreground="{StaticResource TextMutedBrush}"
+                                                           Margin="0,6,0,0" TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
+                                                <Button Content="编辑" Padding="12,6" FontSize="11" Margin="0,0,0,6"
+                                                        Command="{Binding DataContext.LoadGroupCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding}">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+                                                            <Setter Property="IsEnabled" Value="{Binding DataContext.CanManage, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                                <Button Content="开启" Style="{StaticResource SuccessButton}" Padding="12,6" FontSize="11" Margin="0,0,0,6" Tag="{Binding Id}" Click="GroupOn_Click"/>
+                                                <Button Content="关闭" Style="{StaticResource DangerButton}" Padding="12,6" FontSize="11" Margin="0,0,0,6" Tag="{Binding Id}" Click="GroupOff_Click"/>
+                                                <Button Content="删除" Padding="12,6" FontSize="11" Tag="{Binding}" Click="GroupDelete_Click">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+                                                            <Setter Property="IsEnabled" Value="{Binding DataContext.CanManage, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Border Background="{StaticResource CardBgGradientBrush}"
+                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                            CornerRadius="4" Padding="40" HorizontalAlignment="Stretch">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Groups.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="NO GROUPS" FontSize="14" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="暂无分组，请在右侧新建"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       FontSize="12" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+            <!-- ======== 右侧·编辑面板 ======== -->
+            <Border Grid.Column="1"
+                    Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="20,18">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <StackPanel Margin="6">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                            <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                            <TextBlock Text="EDIT · PANEL" FontSize="10" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding SelectedGroup.Name, FallbackValue=创建新分组}" Style="{StaticResource SectionTitle}" Margin="0"/>
+                            <Button Grid.Column="1" Content="+ 新建" Style="{StaticResource SecondaryButton}" Command="{Binding StartCreateCommand}" Padding="14,6" FontSize="11" IsEnabled="{Binding CanManage}"/>
+                        </Grid>
+                        <TextBlock Text="GROUP · NAME" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                        <TextBox Text="{Binding EditGroupName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,12"/>
+                        <TextBlock Text="DESCRIPTION" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                        <TextBox Text="{Binding EditGroupDesc, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,16"/>
+                        <TextBlock Text="CIRCUITS · 选择回路" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource AccentBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                        <Border Background="{StaticResource BgLightBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="10" MaxHeight="260">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding CircuitOptions}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsSelected}" Margin="0,3"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Border>
+                        <TextBlock Text="BRIGHTNESS · 整组亮度" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource AccentBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,16,0,6"/>
+                        <Slider Value="{Binding GroupBrightness}" Minimum="0" Maximum="100" TickFrequency="10" IsSnapToTickEnabled="True"/>
+                        <TextBlock Foreground="{StaticResource AccentBrush}"
+                                   FontSize="11" FontFamily="{StaticResource MonoFontFamily}"
+                                   Margin="0,4,0,0">
+                            <Run Text="{Binding GroupBrightness}"/>
+                            <Run Text="%" Foreground="{StaticResource TextMutedBrush}"/>
+                        </TextBlock>
+                        <Grid Margin="0,16,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="保存分组" Style="{StaticResource PrimaryButton}"
+                                    Command="{Binding SaveGroupCommand}" Margin="0,0,6,0" IsEnabled="{Binding CanManage}"/>
+                            <Button Grid.Column="1" Content="应用亮度" Command="{Binding SetGroupBrightnessCommand}"
+                                    CommandParameter="{Binding SelectedGroup.Id}">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedGroup}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding SelectedGroup, Converter={StaticResource NullToVisibility}}" Value="Visible"/>
+                                                    <Condition Binding="{Binding CanManage}" Value="True"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                        <Border Background="#300F1E36"
+                                BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="10,7" Margin="0,14,0,0"
+                                Visibility="{Binding Message, Converter={StaticResource NullToVisibility}}">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Message}"
+                                           Foreground="{StaticResource AccentBrush}"
+                                           FontSize="11"
+                                           FontFamily="{StaticResource MonoFontFamily}"
+                                           VerticalAlignment="Center" Margin="8,0,0,0"
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Border Grid.RowSpan="2"
+                Background="#CC040812"
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Width="64" Height="64">
+                    <Ellipse Style="{StaticResource RotatingArc}" Width="64" Height="64"/>
+                    <Ellipse Style="{StaticResource PulseRing}" Width="30" Height="30"/>
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource AccentBrush}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Color="#00E5FF" BlurRadius="14" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Text="LOADING · GROUP DATA"
+                           FontSize="11" FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontFamily="{StaticResource MonoFontFamily}"
+                           HorizontalAlignment="Center" Margin="0,22,0,0"/>
+                <TextBlock Text="正在加载分组数据"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

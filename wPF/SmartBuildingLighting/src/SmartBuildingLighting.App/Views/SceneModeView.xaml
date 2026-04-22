@@ -1,0 +1,248 @@
+<UserControl x:Class="SmartBuildingLighting.App.Views.SceneModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SmartBuildingLighting.App.Controls"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader Title="情景模式" Code="CONTROL / SCENE · MODE"
+                             Subtitle="预设光照情景 · 一键切换会议、节能、紧急等工作模式"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer Margin="0,0,16,0" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <ItemsControl ItemsSource="{Binding Modes}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="280" Margin="0,0,14,14" Padding="20,18"
+                                        Background="{StaticResource CardBgGradientBrush}"
+                                        BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                        CornerRadius="4">
+                                    <Grid>
+                                        <!-- 顶部 accent 条 -->
+                                        <Border Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                                Background="{StaticResource AccentBrush}" Opacity="0.6"/>
+                                        <Path Style="{StaticResource CornerClipTL}"/>
+                                        <Path Style="{StaticResource CornerClipBR}"/>
+                                        <StackPanel Margin="6">
+                                            <Grid Margin="0,0,0,10">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel>
+                                                    <TextBlock Text="✦" Foreground="{StaticResource AccentBrush}" FontSize="20">
+                                                        <TextBlock.Effect>
+                                                            <DropShadowEffect Color="#00E5FF" BlurRadius="10" ShadowDepth="0" Opacity="0.55"/>
+                                                        </TextBlock.Effect>
+                                                    </TextBlock>
+                                                    <TextBlock Text="{Binding Name}"
+                                                               FontSize="17" FontWeight="SemiBold"
+                                                               Foreground="{StaticResource TextPrimaryBrush}"
+                                                               Margin="0,6,0,0"/>
+                                                </StackPanel>
+                                                <Border Grid.Column="1" Background="#300F1E36"
+                                                        BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                                        Padding="8,3" CornerRadius="3" VerticalAlignment="Top">
+                                                    <TextBlock Text="{Binding ModeType}" FontSize="10" FontWeight="Bold"
+                                                               Foreground="{StaticResource AccentBrush}"
+                                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                                </Border>
+                                            </Grid>
+                                            <TextBlock Text="{Binding Description}" FontSize="11"
+                                                       Foreground="{StaticResource TextMutedBrush}"
+                                                       Margin="0,0,0,12" TextWrapping="Wrap"/>
+                                            <Border Background="#200F1E36"
+                                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                                    CornerRadius="3" Padding="10,6" Margin="0,0,0,14">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="◉" Foreground="{StaticResource AccentBrush}" FontSize="10" VerticalAlignment="Center"/>
+                                                    <TextBlock FontSize="11" FontFamily="{StaticResource MonoFontFamily}"
+                                                               Foreground="{StaticResource TextSecondaryBrush}"
+                                                               VerticalAlignment="Center" Margin="8,0,0,0">
+                                                        <Run Text="涉及"/>
+                                                        <Run Text="{Binding Details.Count}" Foreground="{StaticResource AccentBrush}" FontWeight="Bold"/>
+                                                        <Run Text="个回路"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </Border>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="0" Content="应用" Style="{StaticResource PrimaryButton}"
+                                                        Command="{Binding DataContext.ApplyModeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding}" Padding="0,8" Margin="0,0,6,0"/>
+                                                <Button Grid.Column="1" Content="加载编辑" Style="{StaticResource SecondaryButton}"
+                                                        Command="{Binding DataContext.SelectModeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding}"
+                                                        IsEnabled="{Binding DataContext.CanManage, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                            </Grid>
+                                            <Button Content="删除" Style="{StaticResource DangerButton}"
+                                                    Command="{Binding DataContext.DeleteModeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding DataContext.CanManage, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                    Margin="0,8,0,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Border Background="{StaticResource CardBgGradientBrush}"
+                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                            CornerRadius="4" Padding="40">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Modes.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="NO SCENES" FontSize="14" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Text="暂无情景模式，请在右侧新建"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       FontSize="12" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+            <!-- ======== 右侧·编辑面板 ======== -->
+            <Border Grid.Column="1"
+                    Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="20,18">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="6">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                <TextBlock Text="SCENE · EDITOR" FontSize="10" FontWeight="Bold"
+                                           Foreground="{StaticResource AccentBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}"
+                                           VerticalAlignment="Center" Margin="8,0,0,0"/>
+                            </StackPanel>
+                            <Grid Margin="0,0,0,12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding SelectedMode.Name, FallbackValue=新建自定义模式}" Style="{StaticResource SectionTitle}" Margin="0"/>
+                                <Button Grid.Column="1" Content="+ 新建" Style="{StaticResource SecondaryButton}" Command="{Binding StartCreateCommand}" Padding="14,6" FontSize="11" IsEnabled="{Binding CanManage}"/>
+                            </Grid>
+                            <TextBlock Text="SCENE · NAME" FontSize="10" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextMutedBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                            <TextBox Text="{Binding ModeName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,12"/>
+                            <TextBlock Text="DESCRIPTION" FontSize="10" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextMutedBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                            <TextBox Text="{Binding ModeDescription, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,16"/>
+                            <TextBlock Text="CIRCUITS · 回路明细" FontSize="10" FontWeight="SemiBold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                            <Border Background="{StaticResource BgLightBrush}"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="10" MaxHeight="320">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ItemsControl ItemsSource="{Binding CircuitOptions}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Padding="10" Margin="0,0,0,6"
+                                                        Background="{StaticResource BgCardBrush}"
+                                                        BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                                        CornerRadius="3">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="70"/>
+                                                            <ColumnDefinition Width="80"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <CheckBox Content="{Binding DisplayName}" IsChecked="{Binding IsSelected}" VerticalAlignment="Center"/>
+                                                        <CheckBox Grid.Column="1" Content="开启" IsChecked="{Binding TargetState}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                        <TextBox Grid.Column="2" Text="{Binding TargetBrightness}" Margin="6,0,0,0" Padding="8,6" FontSize="11"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </Border>
+                            <Button Content="保存模式" Style="{StaticResource PrimaryButton}" Command="{Binding SaveModeCommand}" Margin="0,16,0,0" IsEnabled="{Binding CanManage}"/>
+                            <Border Background="#300F1E36"
+                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="10,7" Margin="0,14,0,0"
+                                    Visibility="{Binding Message, Converter={StaticResource NullToVisibility}}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Message}"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center" Margin="8,0,0,0"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Visibility="{Binding IsApplying, Converter={StaticResource BoolToVisibility}}"
+                                    Background="#300F1E36"
+                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="14,12" Margin="0,14,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Style="{StaticResource RotatingArc}" Width="20" Height="20"/>
+                                    <TextBlock Text="APPLYING · 正在应用情景模式"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontSize="12" FontWeight="SemiBold"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center" Margin="12,0,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+        <Border Grid.RowSpan="2"
+                Background="#CC040812"
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Width="64" Height="64">
+                    <Ellipse Style="{StaticResource RotatingArc}" Width="64" Height="64"/>
+                    <Ellipse Style="{StaticResource PulseRing}" Width="30" Height="30"/>
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource AccentBrush}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Color="#00E5FF" BlurRadius="14" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Text="LOADING · SCENES"
+                           FontSize="11" FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontFamily="{StaticResource MonoFontFamily}"
+                           HorizontalAlignment="Center" Margin="0,22,0,0"/>
+                <TextBlock Text="正在加载情景模式"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

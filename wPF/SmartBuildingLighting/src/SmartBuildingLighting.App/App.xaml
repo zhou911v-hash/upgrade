@@ -1,0 +1,28 @@
+<Application x:Class="SmartBuildingLighting.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:conv="clr-namespace:SmartBuildingLighting.App.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/TextStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/Buttons.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/GlobalStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/IndustrialEffects.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <!-- 全局转换器 -->
+            <conv:BoolToColorConverter x:Key="BoolToColor"/>
+            <conv:BoolToStatusTextConverter x:Key="BoolToStatusText"/>
+            <conv:BoolToOnOffColorConverter x:Key="BoolToOnOffColor"/>
+            <conv:InverseBoolConverter x:Key="InverseBool"/>
+            <conv:NullToVisibilityConverter x:Key="NullToVisibility"/>
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+            <conv:CircuitStatusToBrushConverter x:Key="CircuitStatusToBrush"/>
+            <conv:CircuitStatusToTextConverter x:Key="CircuitStatusToText"/>
+            <conv:CommunicationModeDisplayConverter x:Key="CommunicationModeDisplay"/>
+            <conv:ScheduleTargetTypeDisplayConverter x:Key="ScheduleTargetTypeDisplay"/>
+            <conv:PageKeyStateBrushConverter x:Key="PageKeyStateBrush"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

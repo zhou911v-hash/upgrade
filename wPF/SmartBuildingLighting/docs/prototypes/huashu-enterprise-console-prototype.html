@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huashu Enterprise Console Prototype</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --panel: #ffffff;
+      --panel-soft: #f6f8fb;
+      --line: #d9e1ea;
+      --text: #1b1f23;
+      --muted: #667482;
+      --accent: #0f6cbd;
+      --accent-soft: #eaf2fb;
+      --success: #107c10;
+      --warning: #9a6700;
+      --danger: #c42b1c;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #f7f9fb 0%, #eef2f6 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .app-shell {
+      width: 1520px;
+      margin: 24px auto;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: shell-in 420ms ease-out;
+    }
+
+    @keyframes shell-in {
+      from { transform: translateY(14px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .topbar {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand h1 {
+      font-size: 14px;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand p {
+      margin: 2px 0 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .user {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .role-pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 600;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 224px 1fr;
+      min-height: 900px;
+    }
+
+    .sidebar {
+      padding: 20px 14px;
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, #fbfcfd 0%, #f3f6f9 100%);
+    }
+
+    .sidebar-label {
+      margin: 0 0 12px 16px;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin: 4px 0;
+      padding: 12px 16px 12px 14px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      color: #43505d;
+      background: transparent;
+      cursor: pointer;
+      transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .nav-item:hover {
+      background: #f6f8fb;
+      border-color: #e5ebf1;
+      transform: translateX(1px);
+    }
+
+    .nav-item.active {
+      background: var(--accent-soft);
+      border-color: #c8ddf6;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .content {
+      padding: 28px;
+      background: #f3f5f7;
+    }
+
+    .view {
+      display: none;
+      animation: fade-in .24s ease-out;
+    }
+
+    .view.active { display: block; }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+
+    .actions { display: flex; gap: 10px; align-items: center; }
+
+    .button {
+      border: 1px solid #c8d3df;
+      background: #fff;
+      color: #304050;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .button.ghost {
+      background: transparent;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .grid-main {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .stat-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+
+    .chart-box {
+      height: 254px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fb 100%);
+      border: 1px solid #edf1f5;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bars {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      height: 168px;
+      display: flex;
+      align-items: end;
+      gap: 22px;
+    }
+
+    .bar {
+      width: 34px;
+      background: linear-gradient(180deg, #66b8ff 0%, #0f6cbd 100%);
+      border-radius: 10px;
+      animation: rise .5s ease-out both;
+    }
+
+    .bar:nth-child(1) { height: 52%; animation-delay: .04s; }
+    .bar:nth-child(2) { height: 68%; animation-delay: .08s; }
+    .bar:nth-child(3) { height: 61%; animation-delay: .12s; }
+    .bar:nth-child(4) { height: 84%; animation-delay: .16s; }
+    .bar:nth-child(5) { height: 76%; animation-delay: .20s; }
+    .bar:nth-child(6) { height: 92%; animation-delay: .24s; }
+    .bar:nth-child(7) { height: 81%; animation-delay: .28s; }
+
+    @keyframes rise {
+      from { transform: scaleY(.35); transform-origin: bottom; opacity: .4; }
+      to { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    }
+
+    .log-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #edf1f5;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      color: #415160;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 86px;
+      gap: 14px;
+      align-items: center;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .track {
+      height: 10px;
+      background: #eef2f6;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0f6cbd 0%, #36b5ff 100%);
+    }
+
+    .monitor-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr 300px;
+      gap: 16px;
+    }
+
+    .floor-list .nav-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin: 0 0 8px;
+    }
+
+    .monitor-canvas {
+      position: relative;
+      min-height: 620px;
+      background: #fbfcfd;
+      border: 1px solid #dde6ee;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .room {
+      position: absolute;
+      border: 1px solid #d7e0e8;
+      background: #f7f9fb;
+      border-radius: 12px;
+      padding: 12px;
+      color: #314253;
+      font-size: 13px;
+    }
+
+    .room.active {
+      background: #eaf2fb;
+      border-color: #9fc4ea;
+    }
+
+    .node {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #0f6cbd;
+      box-shadow: 0 0 0 8px rgba(15,108,189,.14);
+    }
+
+    .node.warning {
+      background: #b98900;
+      box-shadow: 0 0 0 8px rgba(185,137,0,.14);
+    }
+
+    .node.danger {
+      background: #c42b1c;
+      box-shadow: 0 0 0 8px rgba(196,43,28,.14);
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: #44515f;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .input, .select {
+      border: 1px solid #d6dee7;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #263340;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .table th, .table td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .table th {
+      color: var(--muted);
+      font-weight: 600;
+      background: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+  <!-- assumptions:
+    1. 这份原型只负责视觉和信息结构验证，不承载真实后端逻辑。
+    2. 目标方向是微软/腾讯企业后台风格，而不是营销页或 AI demo。
+    3. 动效只用于层级和切换反馈，不追求强展示感。
+  -->
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="brand">
+        <h1>智能楼宇照明监控系统</h1>
+        <p id="page-caption">仪表盘</p>
+      </div>
+      <div class="user">
+        <span class="role-pill">系统管理员</span>
+        <span>周文旭</span>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <aside class="sidebar">
+        <p class="sidebar-label">Navigation</p>
+        <button class="nav-item active" data-view="dashboard">仪表盘</button>
+        <button class="nav-item" data-view="monitor2d">楼层监控</button>
+        <button class="nav-item" data-view="monitor3d">三维监控</button>
+        <button class="nav-item" data-view="settings">系统设置</button>
+      </aside>
+
+      <main class="content">
+        <section class="view active" id="dashboard">
+          <div class="page-header">
+            <h2 class="page-title">仪表盘</h2>
+            <div class="actions">
+              <button class="button ghost">导出报表</button>
+              <button class="button primary">刷新数据</button>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="panel"><div class="stat-title">楼层数</div><div class="stat-value">5</div></div>
+            <div class="panel"><div class="stat-title">照明回路</div><div class="stat-value">97</div></div>
+            <div class="panel"><div class="stat-title">当前开启</div><div class="stat-value" style="color:var(--success)">36</div></div>
+            <div class="panel"><div class="stat-title">实时功率</div><div class="stat-value" style="color:var(--accent)">4.8</div></div>
+          </div>
+
+          <div class="grid-main">
+            <div class="panel">
+              <div class="stat-title">近 7 日能耗趋势</div>
+              <div class="chart-box">
+                <div class="bars">
+                  <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                  <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                  <div class="bar"></div>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="stat-title">最近操作</div>
+              <div class="log-item"><span>应用节能模式</span><span>09:24</span></div>
+              <div class="log-item"><span>2F 办公区全开</span><span>09:17</span></div>
+              <div class="log-item"><span>调低培训室亮度</span><span>08:56</span></div>
+              <div class="log-item"><span>通信配置重连成功</span><span>08:42</span></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="stat-title">各楼层能耗对比</div>
+            <div class="comparison-row"><span>1F 大厅层</span><div class="track"><div class="fill" style="width:72%"></div></div><span>128 kWh</span></div>
+            <div class="comparison-row"><span>2F 办公层A</span><div class="track"><div class="fill" style="width:88%"></div></div><span>156 kWh</span></div>
+            <div class="comparison-row"><span>3F 办公层B</span><div class="track"><div class="fill" style="width:80%"></div></div><span>141 kWh</span></div>
+            <div class="comparison-row"><span>4F 会议层</span><div class="track"><div class="fill" style="width:96%"></div></div><span>172 kWh</span></div>
+            <div class="comparison-row"><span>5F 管理层</span><div class="track"><div class="fill" style="width:54%"></div></div><span>96 kWh</span></div>
+          </div>
+        </section>
+
+        <section class="view" id="monitor2d">
+          <div class="page-header">
+            <h2 class="page-title">楼层监控</h2>
+            <div class="actions">
+              <button class="button">楼层全开</button>
+              <button class="button primary">楼层全关</button>
+            </div>
+          </div>
+
+          <div class="monitor-layout">
+            <div class="panel floor-list">
+              <button class="nav-item">1F 大厅层</button>
+              <button class="nav-item active">2F 办公层A</button>
+              <button class="nav-item">3F 办公层B</button>
+              <button class="nav-item">4F 会议层</button>
+              <button class="nav-item">5F 管理层</button>
+            </div>
+
+            <div class="panel">
+              <div class="monitor-canvas">
+                <div class="room" style="left:28px;top:28px;width:220px;height:168px;">开放办公区 A</div>
+                <div class="room active" style="left:270px;top:28px;width:286px;height:168px;">开放办公区 B</div>
+                <div class="room" style="left:28px;top:230px;width:160px;height:128px;">会议室 1</div>
+                <div class="room" style="left:205px;top:230px;width:160px;height:128px;">会议室 2</div>
+                <div class="room" style="left:382px;top:230px;width:112px;height:128px;">卫生间</div>
+                <div class="room" style="left:510px;top:230px;width:92px;height:128px;">茶水间</div>
+                <div class="room" style="left:28px;top:210px;width:574px;height:18px;padding:0 12px;">走廊</div>
+
+                <div class="node" style="left:88px;top:92px"></div>
+                <div class="node" style="left:148px;top:92px"></div>
+                <div class="node danger" style="left:344px;top:92px"></div>
+                <div class="node" style="left:436px;top:92px"></div>
+                <div class="node warning" style="left:116px;top:284px"></div>
+                <div class="node" style="left:290px;top:284px"></div>
+                <div class="node danger" style="left:428px;top:284px"></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="stat-title">回路详情</div>
+              <div class="detail-list">
+                <div>名称：开放办公区 B-照明 2</div>
+                <div>状态：故障</div>
+                <div>地址：0021</div>
+                <div>功率：0 W</div>
+                <div>亮度：0%</div>
+              </div>
+              <div style="height:16px"></div>
+              <div class="stat-title">楼层统计</div>
+              <div class="detail-list">
+                <div>开启：17</div>
+                <div>关闭：8</div>
+                <div>故障 / 离线：2</div>
+                <div>总功率：1.6 kW</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="monitor3d">
+          <div class="page-header">
+            <h2 class="page-title">三维监控</h2>
+            <div class="actions">
+              <button class="button">显示全部楼层</button>
+              <button class="button primary">重置视角</button>
+            </div>
+          </div>
+
+          <div class="monitor-layout">
+            <div class="panel" style="grid-column: 1 / span 2;">
+              <div class="monitor-canvas" style="background:linear-gradient(180deg,#f7f9fc 0%, #eef3f8 100%)">
+                <div style="position:absolute;left:160px;top:470px;width:420px;height:80px;border:1px solid #d9e1ea;border-radius:28px;transform:skewX(-10deg);background:#edf3f8"></div>
+                <div style="position:absolute;left:220px;top:360px;width:360px;height:72px;border:1px solid #d9e1ea;border-radius:26px;transform:skewX(-10deg);background:#edf3f8"></div>
+                <div style="position:absolute;left:280px;top:268px;width:300px;height:64px;border:1px solid #d9e1ea;border-radius:24px;transform:skewX(-10deg);background:#edf3f8"></div>
+                <div class="node" style="left:248px;top:494px"></div>
+                <div class="node" style="left:338px;top:494px"></div>
+                <div class="node danger" style="left:430px;top:494px"></div>
+                <div class="node warning" style="left:388px;top:386px"></div>
+                <div class="node" style="left:466px;top:386px"></div>
+                <div class="node" style="left:438px;top:294px"></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="stat-title">楼层筛选</div>
+              <div class="form-grid">
+                <div class="select">显示全部楼层</div>
+                <div class="select">聚焦 2F 办公层A</div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="stat-title">当前选中</div>
+              <div class="detail-list">
+                <div>回路：开放办公区 B-照明 2</div>
+                <div>状态：故障</div>
+                <div>功率：0 W</div>
+                <div>亮度：0%</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="settings">
+          <div class="page-header">
+            <h2 class="page-title">系统设置</h2>
+            <div class="actions">
+              <button class="button">保存配置</button>
+              <button class="button primary">连接</button>
+            </div>
+          </div>
+
+          <div class="grid-main" style="grid-template-columns: 1.2fr .8fr;">
+            <div class="panel">
+              <div class="stat-title">通信配置</div>
+              <div class="form-grid">
+                <input class="input" value="默认通信配置" />
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <div class="select">Modbus TCP</div>
+                  <input class="input" value="127.0.0.1" />
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <input class="input" value="502" />
+                  <input class="input" value="30" />
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="stat-title">账户</div>
+              <div class="form-grid">
+                <input class="input" value="原密码" />
+                <input class="input" value="新密码" />
+                <button class="button primary">修改密码</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.nav-item[data-view]');
+    const views = document.querySelectorAll('.view');
+    const caption = document.getElementById('page-caption');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('active'));
+        btn.classList.add('active');
+        views.forEach(view => view.classList.remove('active'));
+        document.getElementById(btn.dataset.view).classList.add('active');
+        caption.textContent = btn.textContent.trim();
+      });
+    });
+  </script>
+</body>
+</html>

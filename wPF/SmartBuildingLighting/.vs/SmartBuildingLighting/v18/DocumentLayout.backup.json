@@ -1,0 +1,365 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\z\\AppData\\Local\\Temp\\.vsdbgsrc\\368b669d25df6f9f0b4bf6fc2d0e0ca5badee86035580c36aeb5b16b22998757\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\energystatsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\energystatsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455558888}|src\\SmartBuildingLighting.Services\\SmartBuildingLighting.Services.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455558888}|src\\SmartBuildingLighting.Services\\SmartBuildingLighting.Services.csproj|solutionrelative:src\\smartbuildinglighting.services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455558888}|src\\SmartBuildingLighting.Services\\SmartBuildingLighting.Services.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.services\\communication\\communicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455558888}|src\\SmartBuildingLighting.Services\\SmartBuildingLighting.Services.csproj|solutionrelative:src\\smartbuildinglighting.services\\communication\\communicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455556666}|src\\SmartBuildingLighting.Core\\SmartBuildingLighting.Core.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.core\\models\\area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455556666}|src\\SmartBuildingLighting.Core\\SmartBuildingLighting.Core.csproj|solutionrelative:src\\smartbuildinglighting.core\\models\\area.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\dashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\dashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\logview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\logview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\views\\loginview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\views\\loginview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\viewmodels\\energystatsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\viewmodels\\energystatsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\resources\\styles\\textstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\resources\\styles\\textstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\resources\\styles\\industrialeffects.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\resources\\styles\\industrialeffects.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\resources\\styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\resources\\styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\helpers\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\helpers\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\converters\\converters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\converters\\converters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|d:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wpf\\smartbuildinglighting\\src\\smartbuildinglighting.app\\controls\\pageheader.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-2222-3333-444455559999}|src\\SmartBuildingLighting.App\\SmartBuildingLighting.App.csproj|solutionrelative:src\\smartbuildinglighting.app\\controls\\pageheader.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Area.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Core\\Models\\Area.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.Core\\Models\\Area.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Core\\Models\\Area.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.Core\\Models\\Area.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:02:00.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\App.xaml.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\App.xaml.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\App.xaml.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:01:53.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashboardView.xaml.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:01:39.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnergyStatsView.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\EnergyStatsView.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\EnergyStatsView.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\EnergyStatsView.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\EnergyStatsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T01:01:35.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DashboardView.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\DashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T01:01:27.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LogView.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LogView.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\LogView.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LogView.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\LogView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T01:00:16.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "XamlReader.cs",
+              "DocumentMoniker": "C:\\Users\\z\\AppData\\Local\\Temp\\.vsdbgsrc\\368b669d25df6f9f0b4bf6fc2d0e0ca5badee86035580c36aeb5b16b22998757\\XamlReader.cs",
+              "ToolTip": "C:\\Users\\z\\AppData\\Local\\Temp\\.vsdbgsrc\\368b669d25df6f9f0b4bf6fc2d0e0ca5badee86035580c36aeb5b16b22998757\\XamlReader.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAGMBAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T14:38:34.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommunicationService.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Services\\Communication\\CommunicationService.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.Services\\Communication\\CommunicationService.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Services\\Communication\\CommunicationService.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.Services\\Communication\\CommunicationService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:02:48.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Services\\GroupService.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.Services\\GroupService.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.Services\\GroupService.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.Services\\GroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:05:18.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginView.g.i.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\obj\\Debug\\net6.0-windows\\Views\\LoginView.g.i.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAlwF4AAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:00:11.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\LoginView.xaml.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LoginView.xaml.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\LoginView.xaml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T01:00:00.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LoginView.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Views\\LoginView.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Views\\LoginView.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Views\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:59:50.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EnergyStatsViewModel.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\ViewModels\\EnergyStatsViewModel.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\ViewModels\\EnergyStatsViewModel.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\ViewModels\\EnergyStatsViewModel.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\ViewModels\\EnergyStatsViewModel.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T00:59:39.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\ViewModels\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\ViewModels\\DashboardViewModel.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\ViewModels\\DashboardViewModel.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\ViewModels\\DashboardViewModel.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T00:58:44.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TextStyles.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\TextStyles.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Resources\\Styles\\TextStyles.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\TextStyles.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Resources\\Styles\\TextStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:58:34.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IndustrialEffects.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\IndustrialEffects.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Resources\\Styles\\IndustrialEffects.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\IndustrialEffects.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Resources\\Styles\\IndustrialEffects.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:58:23.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Colors.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\Colors.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Resources\\Styles\\Colors.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\Colors.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Resources\\Styles\\Colors.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:58:06.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Buttons.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\Buttons.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Resources\\Styles\\Buttons.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Resources\\Styles\\Buttons.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Resources\\Styles\\Buttons.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:57:56.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Helpers\\NavigationService.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Helpers\\NavigationService.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Helpers\\NavigationService.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Helpers\\NavigationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T00:57:51.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Converters.cs",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Converters\\Converters.cs",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Converters\\Converters.cs",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Converters\\Converters.cs",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Converters\\Converters.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T00:57:41.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PageHeader.xaml",
+              "DocumentMoniker": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Controls\\PageHeader.xaml",
+              "RelativeDocumentMoniker": "src\\SmartBuildingLighting.App\\Controls\\PageHeader.xaml",
+              "ToolTip": "D:\\xwechat_files\\wxid_8g1c1xmzsoyd22_f5d4\\msg\\file\\2026-04\\wPF\\SmartBuildingLighting\\src\\SmartBuildingLighting.App\\Controls\\PageHeader.xaml",
+              "RelativeToolTip": "src\\SmartBuildingLighting.App\\Controls\\PageHeader.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-22T00:57:24.944Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

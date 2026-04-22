@@ -1,0 +1,290 @@
+{"kind":"deck","id":"smart-building-lighting-defense","slideCount":10,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"5bug4x"}
+{"kind":"slide","slide":2,"id":"vnbqbl"}
+{"kind":"slide","slide":3,"id":"4qbqyq"}
+{"kind":"slide","slide":4,"id":"2v2wqs"}
+{"kind":"slide","slide":5,"id":"0lrkl5"}
+{"kind":"slide","slide":6,"id":"hxgd6e"}
+{"kind":"slide","slide":7,"id":"6ycupf"}
+{"kind":"slide","slide":8,"id":"bldqto"}
+{"kind":"slide","slide":9,"id":"g6338o"}
+{"kind":"slide","slide":10,"id":"t2cog0"}
+{"kind":"image","slide":1,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"3","role":"cover contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"4","role":"cover accent rule","shapeType":"rect","bbox":[64,86,7,455]}
+{"kind":"textbox","slide":1,"id":"5","role":"kicker","text":"GRADUATION DESIGN","textPreview":"GRADUATION DESIGN","textChars":17,"textLines":1,"bbox":[86,88,520,26]}
+{"kind":"textbox","slide":1,"id":"6","role":"cover title","text":"基于 WPF 的智能楼宇照明监控系统的设计与实现","textPreview":"基于 WPF 的智能楼宇照明监控系统的设计与实现","textChars":24,"textLines":1,"bbox":[82,130,785,184]}
+{"kind":"textbox","slide":1,"id":"7","role":"cover subtitle","text":"面向楼宇照明的实时监测、可视化控制、定时调度与能耗分析平台。","textPreview":"面向楼宇照明的实时监测、可视化控制、定时调度与能耗分析平台。","textChars":30,"textLines":1,"bbox":[86,326,610,86]}
+{"kind":"shape","slide":1,"id":"8","role":"cover moment panel","shapeType":"roundRect","bbox":[86,456,390,92]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover moment","text":"WPF + MVVM + SQLite + Modbus TCP","textPreview":"WPF + MVVM + SQLite + Modbus TCP","textChars":32,"textLines":1,"bbox":[112,478,336,40]}
+{"kind":"textbox","slide":1,"id":"10","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":2,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":2,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":2,"id":"4","role":"header","text":"SECTION 02","textPreview":"SECTION 02","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":2,"id":"5","role":"header","text":"02 / 10","textPreview":"02 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":2,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":2,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":2,"id":"8","role":"title","text":"课题背景与研究意义","textPreview":"课题背景与研究意义","textChars":9,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":2,"id":"9","role":"subtitle","text":"智能楼宇建设与节能减排需求推动照明系统从人工控制走向可视化与智能化。","textPreview":"智能楼宇建设与节能减排需求推动照明系统从人工控制走向可视化与智能化。","textChars":34,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":2,"id":"10","role":"card panel: 行业背景","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":2,"id":"11","role":"card accent: 行业背景","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":2,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":2,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":2,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":2,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":2,"id":"16","role":"card label","text":"行业背景","textPreview":"行业背景","textChars":4,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"17","role":"card body: 行业背景","text":"商业建筑中照明能耗占比较高，传统方式存在管理分散、能耗浪费和状态不透明的问题。","textPreview":"商业建筑中照明能耗占比较高，传统方式存在管理分散、能耗浪费和状态不透明的问题。","textChars":39,"textLines":1,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":2,"id":"18","role":"card panel: 现实痛点","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":2,"id":"19","role":"card accent: 现实痛点","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":2,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":2,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":2,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":2,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":2,"id":"24","role":"card label","text":"现实痛点","textPreview":"现实痛点","textChars":4,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"25","role":"card body: 现实痛点","text":"人工巡检效率低、联动控制能力弱、缺少历史数据支撑，无法满足现代楼宇精细化管理需求。","textPreview":"人工巡检效率低、联动控制能力弱、缺少历史数据支撑，无法满足现代楼宇精细化管理需求。","textChars":41,"textLines":1,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":2,"id":"26","role":"card panel: 课题价值","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":2,"id":"27","role":"card accent: 课题价值","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":2,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":2,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":2,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":2,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":2,"id":"32","role":"card label","text":"课题价值","textPreview":"课题价值","textChars":4,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"33","role":"card body: 课题价值","text":"通过软件平台实现监测、控制、调度和统计一体化，提升管理效率并支撑节能目标。","textPreview":"通过软件平台实现监测、控制、调度和统计一体化，提升管理效率并支撑节能目标。","textChars":37,"textLines":1,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":2,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":3,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":3,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":3,"id":"4","role":"header","text":"SECTION 03","textPreview":"SECTION 03","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":3,"id":"5","role":"header","text":"03 / 10","textPreview":"03 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":3,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":3,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":3,"id":"8","role":"title","text":"系统需求与设计目标","textPreview":"系统需求与设计目标","textChars":9,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":3,"id":"9","role":"subtitle","text":"在功能、可视化和可扩展性上同时满足毕业设计与工程演示要求。","textPreview":"在功能、可视化和可扩展性上同时满足毕业设计与工程演示要求。","textChars":29,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":3,"id":"10","role":"metric panel: 楼层示意范围","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":3,"id":"11","role":"metric accent: 楼层示意范围","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":3,"id":"12","role":"metric value","text":"5 层","textPreview":"5 层","textChars":3,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":3,"id":"13","role":"metric label","text":"楼层示意范围","textPreview":"楼层示意范围","textChars":6,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":3,"id":"14","role":"metric note","text":"覆盖楼层、区域与照明回路层级","textPreview":"覆盖楼层、区域与照明回路层级","textChars":14,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":3,"id":"15","role":"metric panel: 预置照明回路","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":3,"id":"16","role":"metric accent: 预置照明回路","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":3,"id":"17","role":"metric value","text":"97 个","textPreview":"97 个","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":3,"id":"18","role":"metric label","text":"预置照明回路","textPreview":"预置照明回路","textChars":6,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":3,"id":"19","role":"metric note","text":"支持平面图与三维视图联动控制","textPreview":"支持平面图与三维视图联动控制","textChars":14,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":3,"id":"20","role":"metric panel: 核心控制对象","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":3,"id":"21","role":"metric accent: 核心控制对象","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":3,"id":"22","role":"metric value","text":"4 类","textPreview":"4 类","textChars":3,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":3,"id":"23","role":"metric label","text":"核心控制对象","textPreview":"核心控制对象","textChars":6,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":3,"id":"24","role":"metric note","text":"单回路、分组、情景模式、全楼","textPreview":"单回路、分组、情景模式、全楼","textChars":14,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":3,"id":"25","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":4,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":4,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":4,"id":"4","role":"header","text":"SECTION 04","textPreview":"SECTION 04","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":4,"id":"5","role":"header","text":"04 / 10","textPreview":"04 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":4,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":4,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":4,"id":"8","role":"title","text":"系统总体架构设计","textPreview":"系统总体架构设计","textChars":8,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":4,"id":"9","role":"subtitle","text":"采用分层架构隔离界面、业务、数据与通信，实现清晰职责划分。","textPreview":"采用分层架构隔离界面、业务、数据与通信，实现清晰职责划分。","textChars":29,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":4,"id":"10","role":"card panel: 表现层","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":4,"id":"11","role":"card accent: 表现层","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":4,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":4,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":4,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":4,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":4,"id":"16","role":"card label","text":"表现层","textPreview":"表现层","textChars":3,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"17","role":"card body: 表现层","text":"WPF + MVVM\n实现桌面交互，负责仪表盘、2D/3D\n监控、分组、情景、调度、统计等页面。","textPreview":"WPF + MVVM | 实现桌面交互，负责仪表盘、2D/3D | 监控、分组、情景、调度、统计等页面。","textChars":48,"textLines":3,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":4,"id":"18","role":"card panel: 业务层","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":4,"id":"19","role":"card accent: 业务层","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":4,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":4,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":4,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":4,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":4,"id":"24","role":"card label","text":"业务层","textPreview":"业务层","textChars":3,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"25","role":"card body: 业务层","text":"LightCircuitService、GroupService、SceneModeService、ScheduleService、EnergyService\n共同实现控制闭环。","textPreview":"LightCircuitService、GroupService、SceneModeService、ScheduleService、EnergyService | 共同实现控制闭环。","textChars":89,"textLines":2,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":4,"id":"26","role":"card panel: 基础设施层","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":4,"id":"27","role":"card accent: 基础设施层","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":4,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":4,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":4,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":4,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":4,"id":"32","role":"card label","text":"基础设施层","textPreview":"基础设施层","textChars":5,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"33","role":"card body: 基础设施层","text":"SQLite + EF Core\n负责持久化，CommunicationService\n统一通信入口，Quartz 承担后台调度。","textPreview":"SQLite + EF Core | 负责持久化，CommunicationService | 统一通信入口，Quartz 承担后台调度。","textChars":65,"textLines":3,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":4,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":5,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":5,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":5,"id":"4","role":"header","text":"SECTION 05","textPreview":"SECTION 05","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":5,"id":"5","role":"header","text":"05 / 10","textPreview":"05 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":5,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":5,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":5,"id":"8","role":"title","text":"数据库与核心实体设计","textPreview":"数据库与核心实体设计","textChars":10,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":5,"id":"9","role":"subtitle","text":"围绕楼层、区域、回路、控制策略与运行记录组织核心数据模型。","textPreview":"围绕楼层、区域、回路、控制策略与运行记录组织核心数据模型。","textChars":29,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":5,"id":"10","role":"card panel: 空间实体","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":5,"id":"11","role":"card accent: 空间实体","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":5,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":5,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":5,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":5,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":5,"id":"16","role":"card label","text":"空间实体","textPreview":"空间实体","textChars":4,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"17","role":"card body: 空间实体","text":"Floor、Area、LightCircuit\n描述楼宇结构与照明回路位置，为 2D/3D\n视图提供布局基础。","textPreview":"Floor、Area、LightCircuit | 描述楼宇结构与照明回路位置，为 2D/3D | 视图提供布局基础。","textChars":55,"textLines":3,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":5,"id":"18","role":"card panel: 控制实体","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":5,"id":"19","role":"card accent: 控制实体","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":5,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":5,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":5,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":5,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":5,"id":"24","role":"card label","text":"控制实体","textPreview":"控制实体","textChars":4,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"25","role":"card body: 控制实体","text":"LightGroup、SceneMode、Schedule\n描述批量控制、情景模式与定时调度策略。","textPreview":"LightGroup、SceneMode、Schedule | 描述批量控制、情景模式与定时调度策略。","textChars":49,"textLines":2,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":5,"id":"26","role":"card panel: 运行实体","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":5,"id":"27","role":"card accent: 运行实体","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":5,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":5,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":5,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":5,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":5,"id":"32","role":"card label","text":"运行实体","textPreview":"运行实体","textChars":4,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"33","role":"card body: 运行实体","text":"EnergyRecord、OperationLog、CommunicationProfile、ScheduleExecutionRecord\n记录能耗、日志、通信配置与调度执行结果。","textPreview":"EnergyRecord、OperationLog、CommunicationProfile、ScheduleExecutionRecord | 记录能耗、日志、通信配置与调度执行结果。","textChars":91,"textLines":2,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":5,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":6,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":6,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":6,"id":"4","role":"header","text":"SECTION 06","textPreview":"SECTION 06","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":6,"id":"5","role":"header","text":"06 / 10","textPreview":"06 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":6,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":6,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":6,"id":"8","role":"title","text":"2D / 3D 可视化监控实现","textPreview":"2D / 3D 可视化监控实现","textChars":15,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":6,"id":"9","role":"subtitle","text":"系统同时支持楼层平面图监控与三维楼层状态展示，两种视图共用同一状态源。","textPreview":"系统同时支持楼层平面图监控与三维楼层状态展示，两种视图共用同一状态源。","textChars":35,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":6,"id":"10","role":"metric panel: 平面图监控","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":6,"id":"11","role":"metric accent: 平面图监控","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":6,"id":"12","role":"metric value","text":"2D","textPreview":"2D","textChars":2,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":6,"id":"13","role":"metric label","text":"平面图监控","textPreview":"平面图监控","textChars":5,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":6,"id":"14","role":"metric note","text":"基于区域坐标与回路相对坐标绘制楼层示意图","textPreview":"基于区域坐标与回路相对坐标绘制楼层示意图","textChars":20,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":6,"id":"15","role":"metric panel: 三维监控","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":6,"id":"16","role":"metric accent: 三维监控","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":6,"id":"17","role":"metric value","text":"3D","textPreview":"3D","textChars":2,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":6,"id":"18","role":"metric label","text":"三维监控","textPreview":"三维监控","textChars":4,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":6,"id":"19","role":"metric note","text":"基于 HelixToolkit 组合楼层体块、区域盒体与灯位节点","textPreview":"基于 HelixToolkit 组合楼层体块、区域盒体与灯位节点","textChars":32,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":6,"id":"20","role":"metric panel: 统一状态源","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":6,"id":"21","role":"metric accent: 统一状态源","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":6,"id":"22","role":"metric value","text":"1 套","textPreview":"1 套","textChars":3,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":6,"id":"23","role":"metric label","text":"统一状态源","textPreview":"统一状态源","textChars":5,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":6,"id":"24","role":"metric note","text":"通信事件回写后，2D 与 3D 界面同步刷新","textPreview":"通信事件回写后，2D 与 3D 界面同步刷新","textChars":22,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":6,"id":"25","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":7,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":7,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":7,"id":"4","role":"header","text":"SECTION 07","textPreview":"SECTION 07","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":7,"id":"5","role":"header","text":"07 / 10","textPreview":"07 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":7,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":7,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":7,"id":"8","role":"title","text":"分组、情景与定时调度","textPreview":"分组、情景与定时调度","textChars":10,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":7,"id":"9","role":"subtitle","text":"系统将常见楼宇照明控制需求抽象为三类核心策略能力。","textPreview":"系统将常见楼宇照明控制需求抽象为三类核心策略能力。","textChars":25,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":7,"id":"10","role":"card panel: 分组控制","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":7,"id":"11","role":"card accent: 分组控制","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":7,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":7,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":7,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":7,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":7,"id":"16","role":"card label","text":"分组控制","textPreview":"分组控制","textChars":4,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"17","role":"card body: 分组控制","text":"管理员可按楼层、功能区或业务场景组合回路，并对整组执行开关和亮度控制。","textPreview":"管理员可按楼层、功能区或业务场景组合回路，并对整组执行开关和亮度控制。","textChars":35,"textLines":1,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":7,"id":"18","role":"card panel: 情景模式","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":7,"id":"19","role":"card accent: 情景模式","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":7,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":7,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":7,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":7,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":7,"id":"24","role":"card label","text":"情景模式","textPreview":"情景模式","textChars":4,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"25","role":"card body: 情景模式","text":"支持预设模式与自定义模式，能够为不同时间段或使用情境快速切换照明状态。","textPreview":"支持预设模式与自定义模式，能够为不同时间段或使用情境快速切换照明状态。","textChars":35,"textLines":1,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":7,"id":"26","role":"card panel: 定时调度","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":7,"id":"27","role":"card accent: 定时调度","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":7,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":7,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":7,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":7,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":7,"id":"32","role":"card label","text":"定时调度","textPreview":"定时调度","textChars":4,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"33","role":"card body: 定时调度","text":"Quartz 按 Cron\n执行单回路、分组、情景模式或全楼任务，并同步写入执行记录。","textPreview":"Quartz 按 Cron | 执行单回路、分组、情景模式或全楼任务，并同步写入执行记录。","textChars":43,"textLines":2,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":7,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":8,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":8,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":8,"id":"4","role":"header","text":"SECTION 08","textPreview":"SECTION 08","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":8,"id":"5","role":"header","text":"08 / 10","textPreview":"08 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":8,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":8,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":8,"id":"8","role":"title","text":"能耗统计与日志追踪","textPreview":"能耗统计与日志追踪","textChars":9,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":8,"id":"9","role":"subtitle","text":"平台不只做控制，也记录运行痕迹与能耗变化，为节能分析提供数据基础。","textPreview":"平台不只做控制，也记录运行痕迹与能耗变化，为节能分析提供数据基础。","textChars":33,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":8,"id":"10","role":"card panel: 能耗采样","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":8,"id":"11","role":"card accent: 能耗采样","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":8,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":8,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":8,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":8,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":8,"id":"16","role":"card label","text":"能耗采样","textPreview":"能耗采样","textChars":4,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"17","role":"card body: 能耗采样","text":"系统根据通信回写与周期采样累计能耗记录，形成日趋势、楼层对比与回路排行。","textPreview":"系统根据通信回写与周期采样累计能耗记录，形成日趋势、楼层对比与回路排行。","textChars":36,"textLines":1,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":8,"id":"18","role":"card panel: 图表展示","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":8,"id":"19","role":"card accent: 图表展示","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":8,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":8,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":8,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":8,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":8,"id":"24","role":"card label","text":"图表展示","textPreview":"图表展示","textChars":4,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"25","role":"card body: 图表展示","text":"仪表盘与统计页使用原生图表展示趋势和对比信息，支持时间范围筛选与\nCSV 导出。","textPreview":"仪表盘与统计页使用原生图表展示趋势和对比信息，支持时间范围筛选与 | CSV 导出。","textChars":40,"textLines":2,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":8,"id":"26","role":"card panel: 日志追踪","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":8,"id":"27","role":"card accent: 日志追踪","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":8,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":8,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":8,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":8,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":8,"id":"32","role":"card label","text":"日志追踪","textPreview":"日志追踪","textChars":4,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"33","role":"card body: 日志追踪","text":"所有关键操作和调度执行都会写入操作日志，支持分页查询与时间过滤。","textPreview":"所有关键操作和调度执行都会写入操作日志，支持分页查询与时间过滤。","textChars":32,"textLines":1,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":8,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":9,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":9,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":9,"id":"4","role":"header","text":"SECTION 09","textPreview":"SECTION 09","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":9,"id":"5","role":"header","text":"09 / 10","textPreview":"09 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":9,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":9,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":9,"id":"8","role":"title","text":"技术难点与解决方案","textPreview":"技术难点与解决方案","textChars":9,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":9,"id":"9","role":"subtitle","text":"围绕跨平台构建、双模式通信、后台调度和三维展示解决关键实现问题。","textPreview":"围绕跨平台构建、双模式通信、后台调度和三维展示解决关键实现问题。","textChars":32,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":9,"id":"10","role":"metric panel: 通信门面","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":9,"id":"11","role":"metric accent: 通信门面","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":9,"id":"12","role":"metric value","text":"双模式","textPreview":"双模式","textChars":3,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":9,"id":"13","role":"metric label","text":"通信门面","textPreview":"通信门面","textChars":4,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":9,"id":"14","role":"metric note","text":"统一封装模拟器与 Modbus TCP，减少上层业务差异","textPreview":"统一封装模拟器与 Modbus TCP，减少上层业务差异","textChars":28,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":9,"id":"15","role":"metric panel: 调度隔离","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":9,"id":"16","role":"metric accent: 调度隔离","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":9,"id":"17","role":"metric value","text":"后台执行","textPreview":"后台执行","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":9,"id":"18","role":"metric label","text":"调度隔离","textPreview":"调度隔离","textChars":4,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":9,"id":"19","role":"metric note","text":"共享调度器 + 独立作用域执行，避免 DbContext 跨线程风险","textPreview":"共享调度器 + 独立作用域执行，避免 DbContext 跨线程风险","textChars":34,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":9,"id":"20","role":"metric panel: 构建验证","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":9,"id":"21","role":"metric accent: 构建验证","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":9,"id":"22","role":"metric value","text":"跨平台","textPreview":"跨平台","textChars":3,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":9,"id":"23","role":"metric label","text":"构建验证","textPreview":"构建验证","textChars":4,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":9,"id":"24","role":"metric note","text":"非 Windows 环境完成构建与测试，Windows 负责最终 UI 运行验收","textPreview":"非 Windows 环境完成构建与测试，Windows 负责最终 UI 运行验收","textChars":40,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":9,"id":"25","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":10,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":10,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":10,"id":"4","role":"header","text":"SECTION 10","textPreview":"SECTION 10","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":10,"id":"5","role":"header","text":"10 / 10","textPreview":"10 / 10","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":10,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":10,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":10,"id":"8","role":"title","text":"总结与展望","textPreview":"总结与展望","textChars":5,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":10,"id":"9","role":"subtitle","text":"系统已完成毕业设计目标中的主要功能，并具备继续工程化拓展的基础。","textPreview":"系统已完成毕业设计目标中的主要功能，并具备继续工程化拓展的基础。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":10,"id":"10","role":"card panel: 已完成成果","shapeType":"roundRect","bbox":[84,426,355.3333333333333,176]}
+{"kind":"shape","slide":10,"id":"11","role":"card accent: 已完成成果","shapeType":"rect","bbox":[84,426,8,176]}
+{"kind":"shape","slide":10,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,450,54,54]}
+{"kind":"shape","slide":10,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,479,6,12]}
+{"kind":"shape","slide":10,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,471,6,20]}
+{"kind":"shape","slide":10,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,464,6,27]}
+{"kind":"textbox","slide":10,"id":"16","role":"card label","text":"已完成成果","textPreview":"已完成成果","textChars":5,"textLines":1,"bbox":[172,448,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"17","role":"card body: 已完成成果","text":"完成 WPF 桌面系统、测试工程、Figma\n设计稿、FigJam 架构图与本地答辩演示文稿。","textPreview":"完成 WPF 桌面系统、测试工程、Figma | 设计稿、FigJam 架构图与本地答辩演示文稿。","textChars":47,"textLines":2,"bbox":[108,512,307.3333333333333,68]}
+{"kind":"shape","slide":10,"id":"18","role":"card panel: 系统特点","shapeType":"roundRect","bbox":[463.3333333333333,426,355.3333333333333,176]}
+{"kind":"shape","slide":10,"id":"19","role":"card accent: 系统特点","shapeType":"rect","bbox":[463.3333333333333,426,8,176]}
+{"kind":"shape","slide":10,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,450,54,54]}
+{"kind":"shape","slide":10,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,468,10,10]}
+{"kind":"shape","slide":10,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,477,10,10]}
+{"kind":"shape","slide":10,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,475,19,3]}
+{"kind":"textbox","slide":10,"id":"24","role":"card label","text":"系统特点","textPreview":"系统特点","textChars":4,"textLines":1,"bbox":[551.3333333333333,448,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"25","role":"card body: 系统特点","text":"具备可视化、可控制、可调度、可统计、可扩展等特点，满足毕业设计演示要求。","textPreview":"具备可视化、可控制、可调度、可统计、可扩展等特点，满足毕业设计演示要求。","textChars":36,"textLines":1,"bbox":[487.3333333333333,512,307.3333333333333,68]}
+{"kind":"shape","slide":10,"id":"26","role":"card panel: 后续展望","shapeType":"roundRect","bbox":[842.6666666666666,426,355.3333333333333,176]}
+{"kind":"shape","slide":10,"id":"27","role":"card accent: 后续展望","shapeType":"rect","bbox":[842.6666666666666,426,8,176]}
+{"kind":"shape","slide":10,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,450,54,54]}
+{"kind":"shape","slide":10,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,465,26,13]}
+{"kind":"shape","slide":10,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,474,26,13]}
+{"kind":"shape","slide":10,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,483,20,10]}
+{"kind":"textbox","slide":10,"id":"32","role":"card label","text":"后续展望","textPreview":"后续展望","textChars":4,"textLines":1,"bbox":[930.6666666666666,448,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"33","role":"card body: 后续展望","text":"可继续扩展真实控制器映射、故障告警、移动端协同、更精细能耗分析与历史回放。","textPreview":"可继续扩展真实控制器映射、故障告警、移动端协同、更精细能耗分析与历史回放。","textChars":37,"textLines":1,"bbox":[866.6666666666666,512,307.3333333333333,68]}
+{"kind":"textbox","slide":10,"id":"34","role":"caption","text":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textPreview":"Generated art plate is used as visual direction; all meaningful copy and structure are editable PowerPoint objects.","textChars":115,"textLines":1,"bbox":[64,674,980,22]}

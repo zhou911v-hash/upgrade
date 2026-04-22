@@ -1,0 +1,258 @@
+<UserControl x:Class="SmartBuildingLighting.App.Views.ThreeDMonitorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SmartBuildingLighting.App.Controls"
+             xmlns:h="http://helix-toolkit.org/wpf"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader Title="三维监控" Code="MONITOR / SPATIAL · 3D"
+                             Subtitle="三维空间实时状态 · 鼠标拖拽旋转视角 · 滚轮缩放">
+            <controls:PageHeader.HeaderActions>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="显示全部楼层" IsChecked="{Binding ShowAllFloors}" VerticalAlignment="Center" Margin="0,0,14,0"/>
+                    <Button Content="⟲  RESET" Style="{StaticResource SecondaryButton}" Padding="16,6" FontSize="11" Click="ResetCamera_Click"/>
+                </StackPanel>
+            </controls:PageHeader.HeaderActions>
+        </controls:PageHeader>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="340"/>
+            </Grid.ColumnDefinitions>
+            <!-- ======== 左侧·3D Viewport ======== -->
+            <Border Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="16" Margin="0,0,16,0">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipTR}"/>
+                    <Path Style="{StaticResource CornerClipBL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <Border Margin="6"
+                            Background="{StaticResource BgDarkBrush}"
+                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                            CornerRadius="3">
+                        <Grid>
+                            <h:HelixViewport3D x:Name="Viewport"
+                                               Background="#07101E"
+                                               ShowFrameRate="False"
+                                               ZoomExtentsWhenLoaded="True">
+                                <h:SunLight/>
+                            </h:HelixViewport3D>
+                            <!-- 角上装饰 HUD 标签 -->
+                            <Border HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    Margin="14" Background="#800F1E36"
+                                    BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                    CornerRadius="2" Padding="8,4">
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="3D VIEWPORT · ACTIVE" FontSize="10" FontWeight="Bold"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                </StackPanel>
+                            </Border>
+                            <Border HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                    Margin="14" Background="#800F1E36"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="2" Padding="8,4">
+                                <TextBlock Foreground="{StaticResource TextMutedBrush}" FontSize="10"
+                                           FontFamily="{StaticResource MonoFontFamily}">
+                                    <Run Text="CIRCUITS · "/>
+                                    <Run Text="{Binding VisibleCircuits.Count, Mode=OneWay}" Foreground="{StaticResource AccentBrush}"/>
+                                </TextBlock>
+                            </Border>
+                            <!-- 空状态 -->
+                            <Border>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#CC040812"/>
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding VisibleCircuits.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="NO DATA"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontSize="16" FontWeight="Bold"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               HorizontalAlignment="Center"/>
+                                    <TextBlock Text="当前条件下暂无三维监控回路"
+                                               Foreground="{StaticResource TextSecondaryBrush}"
+                                               FontSize="12"
+                                               HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            <!-- ======== 右侧·筛选+详情 ======== -->
+            <Border Grid.Column="1"
+                    Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="18,16">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <StackPanel Margin="6">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                            <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                            <TextBlock Text="FILTER · DETAIL" FontSize="10" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </StackPanel>
+                        <TextBlock Text="筛选与详情" Style="{StaticResource SectionTitle}"/>
+                        <TextBlock Text="楼层筛选" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                        <ComboBox ItemsSource="{Binding Floors}" SelectedItem="{Binding SelectedFloor}"
+                                  DisplayMemberPath="Name" Margin="0,0,0,16"/>
+                        <Border Background="#300F1E36"
+                                BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="10,6" Margin="0,0,0,12"
+                                Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}}">
+                            <TextBlock Text="{Binding SelectedCircuit.Name, StringFormat=▸ SELECTED: {0}}"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontSize="11"
+                                       FontFamily="{StaticResource MonoFontFamily}"/>
+                        </Border>
+                        <TextBlock Text="NO SELECTION · 当前未选中"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}"
+                                   FontSize="11" Margin="0,0,0,12"
+                                   Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}, ConverterParameter=Inverse}"/>
+                        <TextBlock Text="可见回路" FontSize="10" FontWeight="SemiBold"
+                                   Foreground="{StaticResource AccentBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,6"/>
+                        <ListBox ItemsSource="{Binding VisibleCircuits}" SelectedItem="{Binding SelectedCircuit}"
+                                 Background="Transparent" BorderThickness="0" MaxHeight="260">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Padding="10" Background="{StaticResource BgLightBrush}"
+                                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                            CornerRadius="3">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Name}"
+                                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                                       FontWeight="SemiBold" FontSize="12"/>
+                                            <TextBlock Text="{Binding FloorName}"
+                                                       Foreground="{StaticResource AccentBrush}" FontSize="10"
+                                                       FontFamily="{StaticResource MonoFontFamily}" Margin="0,4,0,0"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Text="NO DATA · 当前条件下没有可见回路"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}"
+                                   FontSize="11" Margin="0,8,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding VisibleCircuits.Count}" Value="0">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Border Background="{StaticResource BgLightBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="14,12" Margin="0,16,0,0"
+                                Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding SelectedCircuit.Name}"
+                                           Foreground="{StaticResource TextPrimaryBrush}"
+                                           FontSize="15" FontWeight="SemiBold"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                    <Ellipse Width="6" Height="6"
+                                             Fill="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                             VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToText}}"
+                                               Foreground="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                               FontSize="11" FontWeight="SemiBold"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <TextBlock Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,12,0,0">
+                                    <Run Text="ADDR " Foreground="{StaticResource TextMutedBrush}"/>
+                                    <Run Text="{Binding SelectedCircuit.Address}"/>
+                                </TextBlock>
+                                <TextBlock Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,4,0,0">
+                                    <Run Text="POW  " Foreground="{StaticResource TextMutedBrush}"/>
+                                    <Run Text="{Binding SelectedCircuit.Power, StringFormat=F1}"/>
+                                    <Run Text=" W" Foreground="{StaticResource TextMutedBrush}"/>
+                                </TextBlock>
+                                <TextBlock Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,4,0,0">
+                                    <Run Text="CURR " Foreground="{StaticResource TextMutedBrush}"/>
+                                    <Run Text="{Binding SelectedCircuit.Current, StringFormat=F2}"/>
+                                    <Run Text=" A" Foreground="{StaticResource TextMutedBrush}"/>
+                                </TextBlock>
+                                <TextBlock Text="BRIGHTNESS · 亮度调节" FontSize="10" FontWeight="SemiBold"
+                                           Foreground="{StaticResource AccentBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,14,0,8"/>
+                                <Slider Minimum="0" Maximum="100"
+                                        Value="{Binding SelectedCircuit.Brightness}"
+                                        TickFrequency="10" IsSnapToTickEnabled="True"/>
+                                <Grid Margin="0,14,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Content="切换开关"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Command="{Binding ToggleCircuitCommand}"
+                                            CommandParameter="{Binding SelectedCircuit}"
+                                            Margin="0,0,6,0"/>
+                                    <Button Grid.Column="1" Content="应用亮度"
+                                            Style="{StaticResource PrimaryButton}"
+                                            Command="{Binding ApplyBrightnessCommand}"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <!-- Loading -->
+        <Border Grid.RowSpan="2"
+                Background="#CC040812"
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Width="64" Height="64">
+                    <Ellipse Style="{StaticResource RotatingArc}" Width="64" Height="64"/>
+                    <Ellipse Style="{StaticResource PulseRing}" Width="30" Height="30"/>
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource AccentBrush}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Color="#00E5FF" BlurRadius="14" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Text="RENDERING · 3D SCENE"
+                           FontSize="11" FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontFamily="{StaticResource MonoFontFamily}"
+                           HorizontalAlignment="Center" Margin="0,22,0,0"/>
+                <TextBlock Text="正在重建三维场景"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

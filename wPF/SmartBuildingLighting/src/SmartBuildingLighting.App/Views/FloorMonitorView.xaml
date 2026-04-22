@@ -1,0 +1,495 @@
+<UserControl x:Class="SmartBuildingLighting.App.Views.FloorMonitorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SmartBuildingLighting.App.Controls"
+             xmlns:vm="clr-namespace:SmartBuildingLighting.App.ViewModels"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader Title="楼层监控" Code="MONITOR / FLOOR · 2D"
+                             Subtitle="实时同步楼层回路状态 · 点击回路节点查看详情">
+            <controls:PageHeader.HeaderActions>
+                <Button Content="⟳  REFRESH" Style="{StaticResource SecondaryButton}" Command="{Binding RefreshCommand}"/>
+            </controls:PageHeader.HeaderActions>
+        </controls:PageHeader>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            <!-- ======== 左侧·楼层列表 ======== -->
+            <Border Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="18,16" Margin="0,0,16,0">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <StackPanel Margin="6">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                            <TextBlock Text="◈" Foreground="{StaticResource AccentBrush}" FontSize="11" VerticalAlignment="Center"/>
+                            <TextBlock Text="FLOOR · LIST" FontSize="10" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </StackPanel>
+                        <TextBlock Text="楼层选择" Style="{StaticResource SectionTitle}"/>
+                        <ListBox ItemsSource="{Binding Floors}" SelectedItem="{Binding SelectedFloor}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Padding="12,10"
+                                            Background="{StaticResource BgLightBrush}"
+                                            BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                            CornerRadius="3">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Ellipse Width="6" Height="6" Fill="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Name}"
+                                                           Foreground="{StaticResource TextPrimaryBrush}"
+                                                           FontSize="13" FontWeight="SemiBold"
+                                                           Margin="8,0,0,0"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Description}"
+                                                       Foreground="{StaticResource TextMutedBrush}"
+                                                       FontSize="11" Margin="14,4,0,0" TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Text="NO DATA · 暂无楼层"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}"
+                                   FontSize="11" Margin="0,10,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Floors.Count}" Value="0">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <!-- ======== 中间·楼层平面图 ======== -->
+            <Border Grid.Column="1"
+                    Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="18,16" Margin="0,0,16,0">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipTR}"/>
+                    <Path Style="{StaticResource CornerClipBL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <Grid Margin="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Margin="0,0,0,14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="PLAN · VIEW" FontSize="10" FontWeight="Bold"
+                                           Foreground="{StaticResource AccentBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,4"/>
+                                <TextBlock Text="{Binding SelectedFloor.Name, FallbackValue=请选择楼层}"
+                                           Style="{StaticResource SectionTitle}" Margin="0"/>
+                                <TextBlock Text="区域块表示功能区 · 发光节点颜色直接对应运行状态"
+                                           Foreground="{StaticResource TextMutedBrush}" FontSize="11"
+                                           Margin="0,4,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top">
+                                <Button Content="全开" Style="{StaticResource SuccessButton}"
+                                        Command="{Binding TurnAllOnCommand}" Padding="18,8" FontSize="11"
+                                        Margin="0,0,8,0"/>
+                                <Button Content="全关" Style="{StaticResource DangerButton}"
+                                        Command="{Binding TurnAllOffCommand}" Padding="18,8" FontSize="11"/>
+                            </StackPanel>
+                        </Grid>
+                        <Border Grid.Row="1"
+                                Background="{StaticResource BgDarkBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="12" ClipToBounds="True">
+                            <Grid>
+                                <!-- 网格点阵背景 -->
+                                <Border Background="{StaticResource GridDotPattern}" Opacity="0.6"/>
+                                <!-- 扫描雷达线（青色竖线，从左到右循环扫过） -->
+                                <Rectangle Width="2" HorizontalAlignment="Left" IsHitTestVisible="False">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="Transparent" Offset="0"/>
+                                            <GradientStop Color="#B000E5FF" Offset="0.5"/>
+                                            <GradientStop Color="Transparent" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                    <Rectangle.Effect>
+                                        <BlurEffect Radius="6"/>
+                                    </Rectangle.Effect>
+                                    <Rectangle.RenderTransform>
+                                        <TranslateTransform X="-40"/>
+                                    </Rectangle.RenderTransform>
+                                    <Rectangle.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard RepeatBehavior="Forever">
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Rectangle.RenderTransform).(TranslateTransform.X)"
+                                                                     From="-40" To="1100"
+                                                                     Duration="0:0:4.5">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <SineEase EasingMode="EaseInOut"/>
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Rectangle.Triggers>
+                                </Rectangle>
+                                <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" ClipToBounds="True">
+                                    <ItemsControl ItemsSource="{Binding FloorAreas}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate><Canvas/></ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemContainerStyle>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                                <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                            </Style>
+                                        </ItemsControl.ItemContainerStyle>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type vm:FloorAreaItem}">
+                                                <Border Width="{Binding Width}" Height="{Binding Height}"
+                                                        CornerRadius="3" BorderThickness="1">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="#301C3555"/>
+                                                            <Setter Property="BorderBrush" Value="{StaticResource PrimaryLightBrush}"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsHighlighted}" Value="True">
+                                                                    <Setter Property="Background" Value="#4000E5FF"/>
+                                                                    <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <StackPanel Margin="10">
+                                                        <TextBlock Text="{Binding Name}"
+                                                                   Foreground="{StaticResource TextPrimaryBrush}"
+                                                                   FontWeight="SemiBold" FontSize="12"/>
+                                                        <TextBlock Text="{Binding AreaType}"
+                                                                   Foreground="{StaticResource AccentBrush}"
+                                                                   FontSize="10"
+                                                                   FontFamily="{StaticResource MonoFontFamily}"
+                                                                   Margin="0,4,0,0"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <ItemsControl ItemsSource="{Binding FloorCircuits}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate><Canvas/></ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemContainerStyle>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                                <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                            </Style>
+                                        </ItemsControl.ItemContainerStyle>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type vm:FloorCircuitItem}">
+                                                <Button Width="36"
+                                                        Height="36"
+                                                        Background="Transparent"
+                                                        BorderThickness="0"
+                                                        Command="{Binding DataContext.SelectCircuitCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding}">
+                                                    <Button.Template>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <ContentPresenter/>
+                                                        </ControlTemplate>
+                                                    </Button.Template>
+                                                    <Grid>
+                                                        <!-- 外发光光晕 -->
+                                                        <Ellipse Fill="{Binding Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                                                 Opacity="0.25"/>
+                                                        <!-- 中心点 -->
+                                                        <Ellipse Width="12" Height="12"
+                                                                 Fill="{Binding Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                                                 HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                            <Ellipse.Effect>
+                                                                <DropShadowEffect Color="#00E5FF" BlurRadius="10" ShadowDepth="0" Opacity="0.8"/>
+                                                            </Ellipse.Effect>
+                                                        </Ellipse>
+                                                        <!-- 外圈 -->
+                                                        <Ellipse Width="28" Height="28"
+                                                                 Stroke="{Binding Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                                                 StrokeThickness="1.5"/>
+                                                    </Grid>
+                                                    <Button.ToolTip>
+                                                        <StackPanel>
+                                                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                                            <TextBlock Text="{Binding Status, Converter={StaticResource CircuitStatusToText}}"/>
+                                                            <TextBlock Text="{Binding Brightness, StringFormat=亮度 {0}%}"/>
+                                                            <TextBlock Text="{Binding Power, StringFormat=功率 {0:F1} W}"/>
+                                                        </StackPanel>
+                                                    </Button.ToolTip>
+                                                </Button>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Canvas>
+                                <!-- 空状态提示 -->
+                                <Border Background="{StaticResource BgDarkBrush}" CornerRadius="3">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding FloorAreas.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="NO DATA"
+                                                   Foreground="{StaticResource AccentBrush}"
+                                                   FontSize="14" FontWeight="Bold"
+                                                   FontFamily="{StaticResource MonoFontFamily}"
+                                                   HorizontalAlignment="Center"/>
+                                        <TextBlock Text="当前楼层暂无可展示区域"
+                                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                                   FontSize="12"
+                                                   HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+            <!-- ======== 右侧·统计 + 详情 ======== -->
+            <Border Grid.Column="2"
+                    Background="{StaticResource CardBgGradientBrush}"
+                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                    CornerRadius="4" Padding="18,16">
+                <Grid>
+                    <Path Style="{StaticResource CornerClipTL}"/>
+                    <Path Style="{StaticResource CornerClipBR}"/>
+                    <StackPanel Margin="6">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                            <Ellipse Style="{StaticResource StatusDotAccent}" VerticalAlignment="Center"/>
+                            <TextBlock Text="FLOOR · STATS" FontSize="10" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontFamily="{StaticResource MonoFontFamily}"
+                                       VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </StackPanel>
+                        <TextBlock Text="楼层统计" Style="{StaticResource SectionTitle}"/>
+                        <Border Background="#300F1E36"
+                                BorderBrush="{StaticResource AccentBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="10,6" Margin="0,0,0,12"
+                                Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}}">
+                            <TextBlock Text="{Binding SelectedCircuit.Name, StringFormat=▸ SELECTED: {0}}"
+                                       Foreground="{StaticResource AccentBrush}"
+                                       FontSize="11"
+                                       FontFamily="{StaticResource MonoFontFamily}"/>
+                        </Border>
+                        <TextBlock Text="NO SELECTION · 当前未选中回路"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontFamily="{StaticResource MonoFontFamily}"
+                                   FontSize="11" Margin="0,0,0,12"
+                                   Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}, ConverterParameter=Inverse}"/>
+                        <UniformGrid Columns="2" Margin="0,0,0,16">
+                            <Border Background="{StaticResource BgLightBrush}"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="12,10" Margin="0,0,6,6">
+                                <StackPanel>
+                                    <TextBlock Text="ON" FontSize="9" FontWeight="Bold"
+                                               Foreground="{StaticResource SuccessBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                    <TextBlock Text="{Binding FloorOnCount}"
+                                               Foreground="{StaticResource SuccessBrush}"
+                                               FontSize="24" FontWeight="Bold"
+                                               FontFamily="{StaticResource MonoFontFamily}">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect Color="#00FF88" BlurRadius="8" ShadowDepth="0" Opacity="0.55"/>
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="{StaticResource BgLightBrush}"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="12,10" Margin="0,0,0,6">
+                                <StackPanel>
+                                    <TextBlock Text="OFF" FontSize="9" FontWeight="Bold"
+                                               Foreground="{StaticResource TextMutedBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                    <TextBlock Text="{Binding FloorOffCount}"
+                                               Foreground="{StaticResource TextPrimaryBrush}"
+                                               FontSize="24" FontWeight="Bold"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="{StaticResource BgLightBrush}"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="12,10" Margin="0,0,6,0">
+                                <StackPanel>
+                                    <TextBlock Text="FAULT" FontSize="9" FontWeight="Bold"
+                                               Foreground="{StaticResource WarningBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                    <TextBlock Text="{Binding FloorFaultCount}"
+                                               Foreground="{StaticResource WarningBrush}"
+                                               FontSize="24" FontWeight="Bold"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Background="{StaticResource BgLightBrush}"
+                                    BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                    CornerRadius="3" Padding="12,10">
+                                <StackPanel>
+                                    <TextBlock Text="POWER" FontSize="9" FontWeight="Bold"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               FontFamily="{StaticResource MonoFontFamily}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding FloorTotalPower, StringFormat=F1}"
+                                                   Foreground="{StaticResource AccentBrush}"
+                                                   FontSize="22" FontWeight="Bold"
+                                                   FontFamily="{StaticResource MonoFontFamily}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect Color="#00E5FF" BlurRadius="8" ShadowDepth="0" Opacity="0.55"/>
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                        <TextBlock Text="W" Style="{StaticResource UnitLabel}"
+                                                   VerticalAlignment="Bottom" Margin="4,0,0,3"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </UniformGrid>
+                        <TextBlock Text="回路详情" Style="{StaticResource SectionTitle}"/>
+                        <Border Background="{StaticResource BgLightBrush}"
+                                BorderBrush="{StaticResource PrimaryLightBrush}" BorderThickness="1"
+                                CornerRadius="3" Padding="14,12"
+                                Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding SelectedCircuit.Name}"
+                                           FontSize="16" FontWeight="SemiBold"
+                                           Foreground="{StaticResource TextPrimaryBrush}"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                    <Ellipse Width="6" Height="6"
+                                             Fill="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                             VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToText}}"
+                                               Foreground="{Binding SelectedCircuit.Status, Converter={StaticResource CircuitStatusToBrush}}"
+                                               FontSize="11" FontWeight="SemiBold"
+                                               FontFamily="{StaticResource MonoFontFamily}"
+                                               Margin="6,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Grid Margin="0,12,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="ADDR  "
+                                               Foreground="{StaticResource TextMutedBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,8,3"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedCircuit.Address}"
+                                               Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,3"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="CURR  "
+                                               Foreground="{StaticResource TextMutedBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,8,3"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1"
+                                               Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,0,3">
+                                        <Run Text="{Binding SelectedCircuit.Current, StringFormat=F2}"/>
+                                        <Run Text="A" Foreground="{StaticResource TextMutedBrush}"/>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="POW   "
+                                               Foreground="{StaticResource TextMutedBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}" Margin="0,0,8,0"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1"
+                                               Foreground="{StaticResource TextPrimaryBrush}" FontSize="11"
+                                               FontFamily="{StaticResource MonoFontFamily}">
+                                        <Run Text="{Binding SelectedCircuit.Power, StringFormat=F1}"/>
+                                        <Run Text="W" Foreground="{StaticResource TextMutedBrush}"/>
+                                    </TextBlock>
+                                </Grid>
+                                <TextBlock Text="BRIGHTNESS · 亮度调节" FontSize="10" FontWeight="SemiBold"
+                                           Foreground="{StaticResource AccentBrush}"
+                                           FontFamily="{StaticResource MonoFontFamily}" Margin="0,14,0,8"/>
+                                <Slider Minimum="0" Maximum="100"
+                                        Value="{Binding SelectedCircuit.Brightness}"
+                                        TickFrequency="10" IsSnapToTickEnabled="True"/>
+                                <TextBlock Foreground="{StaticResource AccentBrush}"
+                                           FontSize="11" FontFamily="{StaticResource MonoFontFamily}"
+                                           Margin="0,6,0,0">
+                                    <Run Text="{Binding SelectedCircuit.Brightness}"/>
+                                    <Run Text="%" Foreground="{StaticResource TextMutedBrush}"/>
+                                </TextBlock>
+                                <Grid Margin="0,14,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0"
+                                            Content="{Binding SelectedCircuit.IsOn, Converter={StaticResource BoolToStatusText}, StringFormat={}{0}切换}"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Command="{Binding ToggleCircuitCommand}"
+                                            CommandParameter="{Binding SelectedCircuit}"
+                                            Margin="0,0,6,0"/>
+                                    <Button Grid.Column="1" Content="应用亮度"
+                                            Style="{StaticResource PrimaryButton}"
+                                            Command="{Binding ApplyBrightnessCommand}"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <TextBlock Text="▸ 点击平面图中的灯位查看详细状态"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   FontSize="11"
+                                   FontFamily="{StaticResource MonoFontFamily}"
+                                   Visibility="{Binding SelectedCircuit, Converter={StaticResource NullToVisibility}, ConverterParameter=Inverse}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <!-- Loading 遮罩 -->
+        <Border Grid.RowSpan="2"
+                Background="#CC040812"
+                Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibility}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Width="64" Height="64">
+                    <Ellipse Style="{StaticResource RotatingArc}" Width="64" Height="64"/>
+                    <Ellipse Style="{StaticResource PulseRing}" Width="30" Height="30"/>
+                    <Ellipse Width="10" Height="10" Fill="{StaticResource AccentBrush}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Color="#00E5FF" BlurRadius="14" ShadowDepth="0"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                </Grid>
+                <TextBlock Text="SYNCING · FLOOR DATA"
+                           FontSize="11" FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontFamily="{StaticResource MonoFontFamily}"
+                           HorizontalAlignment="Center" Margin="0,22,0,0"/>
+                <TextBlock Text="正在同步楼层监控数据"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"
+                           HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
